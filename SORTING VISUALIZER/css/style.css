@@ -1,0 +1,259 @@
+:root {
+  --primary-color: #1306ffcc;
+  --secondary-color: #fcfdfd;
+}
+* {
+  /* Below is the standard CSS code one should add to get rid of default margins and padding which most of tge HTML elements have */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  user-select: none;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #000000;
+}
+
+/* Title CSS */
+.title {
+  background-color: var(--primary-color);
+  text-align: center;
+  font-size: 1.2em;
+  padding-block: 0.5em;
+  color: #fffbfb;
+  cursor: pointer;
+}
+
+/* Navbar CSS */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8em;
+  font-size: 16px;
+  min-height: 70px;
+  padding-block: 0.6em;
+  background-color: black;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.navbar a {
+  all: unset;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+  background-color: #1306ffcc;
+}
+.navbar a:hover {
+  background-color: #555477;
+}
+.navbar #menu {
+  width: 150px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  background-color: #1306ffcc;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar .algo-menu{
+  flex-direction: column;
+}
+
+.navbar .algo-menu.active{
+  display: flex;
+}
+
+
+.navbar .icon {
+  display: none;
+  flex-direction: column;
+}
+
+.navbar .icon.active{
+  display: flex;
+}
+#menu,#random,#start {
+  cursor: pointer;
+}
+
+/* Center css */
+.center {
+  margin: 0 auto;
+  box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 6px; /* Added shadow to make page border free */
+  height: 420px;
+  width: 420px;
+  max-height: 731px;
+}
+.array {
+  display: flex;
+  align-items: flex-end;
+  min-height: 100%;
+  height: 100%;
+  padding: 0.8rem;
+  flex-direction: row;
+}
+
+#custom-array {
+  padding: 8px;
+  border: 1px solid #1306ffcc;
+  border-radius: 6px;
+  outline: none;
+}
+
+#submit-array {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background-color: #1306ffcc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#submit-array:hover {
+  background-color: #798caa;
+}
+
+.cell {
+  display: flex;
+  align-items: flex-start;
+  flex: 0.5;
+  width: 0.000001%;
+  margin: 1px;
+  background-color: #164ba1;
+  resize: horizontal;
+  position: relative;
+  transition: all 0.2s ease-in;
+}
+.cell.done {
+  background-color: #9cec5b;
+  border-color: #9cec5b;
+  color: white;
+  transition: all 0.4s ease-out;
+}
+.cell.visited {
+  border-color: #00f8f8;
+  background-color: #00f8f8;
+  color: white;
+  transition: 0.5s;
+}
+.cell.current {
+  border-color: #04eae2;
+  background-color: #04eae2;
+  color: white;
+  transition: all 0.4s ease-out;
+}
+.cell.min {
+  background-color: #ff1493;
+  border-color: #ff1493;
+  color: white;
+  transition: all 0.4s ease-out;
+}
+
+/* Footer CSS */
+
+/*.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.footer button {
+  background-color: #e43547; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.footer button:hover {
+  background-color: #45a049;
+}
+
+.footer button:active {
+  transform: scale(0.95);
+}
+*/
+
+@media screen and (max-width: 1024){
+  .navbar{
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8em;
+  }
+
+  .navbar a{
+    width: fit-content;
+    padding: 10px 15px;
+  }
+
+  .center{
+    width:90%;
+    height: auto;
+  }
+
+  footer{
+    font-size: 16px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stacks the navbar items vertically */
+    align-items: center;  /* Ensures each item takes full width */
+    gap: 0.5em; /* Reduces gap for smaller screens */
+  }
+
+  .navbar a {
+    width:fit-content; /* Makes the navbar links stretch across the available width */
+    text-align: left; /* Align text to the left */
+    padding: 10px;  /* Increase padding for easy clickability */
+  }
+
+  /* Display hamburger icon on smaller screens */
+  .navbar .icon {
+    display: block; /* Shows hamburger icon on small screens */
+    cursor: pointer;
+  }
+
+  .navbar #menu {
+    width: 100%;  /* Ensure the menu button expands to full width */
+    padding: 12px;
+  }
+}
+
+/* For very small mobile devices */
+@media screen and (max-width: 480px) {
+  .navbar a {
+    font-size: 14px; /* Adjust the font size */
+    padding: 8px;    /* Adjust padding */
+  }
+  .navbar #menu {
+    width: 100%;
+    font-size: 14px;
+  }
+  .center {
+    width: 95%;
+  }
+  footer {
+    font-size: 14px;
+  }
+}
